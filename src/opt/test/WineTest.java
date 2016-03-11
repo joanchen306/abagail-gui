@@ -1,5 +1,6 @@
 package opt.test;
 
+import dist.test.JGraph;
 import func.nn.backprop.BackPropagationNetwork;
 import func.nn.backprop.BackPropagationNetworkFactory;
 import func.nn.backprop.BatchBackPropagationTrainer;
@@ -37,12 +38,19 @@ public class WineTest extends Application{
 
     static BufferedWriter writer;
 
+    private static int counter;
+
     private static double temp;
     private static double cooling;
     private static int populationSize;
     private static int toMate;
     private static int toMutate;
+    private static int restarts;
     private String runInstruc;
+    private static ArrayList<double[]> runs;
+
+    static double trainError;
+    static double testError;
     private static String[] labels;
   private static Set<String> unique_labels;
 
@@ -95,6 +103,18 @@ public class WineTest extends Application{
 
   private static List<Instance[]> folds;
 
+    private static ArrayList<Double> bp_trainingErr = new ArrayList<>();
+    private static ArrayList<Double> bp_testingErr = new ArrayList<>();
+
+    private static ArrayList<Double> rhc_trainingErr = new ArrayList<>();
+    private static ArrayList<Double> rhc_testingErr = new ArrayList<>();
+
+    private static ArrayList<Double> sa_trainingErr = new ArrayList<>();
+    private static ArrayList<Double> sa_testingErr = new ArrayList<>();
+
+    private static ArrayList<Double> ga_trainingErr = new ArrayList<>();
+    private static ArrayList<Double> ga_testingErr = new ArrayList<>();
+
 
   public static void main(String[] args) {
       launch(args);
@@ -128,7 +148,7 @@ public class WineTest extends Application{
       nets[i] = fffactory.createClassificationNetwork(
           new int[] {inputLayer, hiddenLayer, outputLayer});
       nnops[i] = new NeuralNetworkOptimizationProblem(trnfoldsSet, nets[i], measure);
-      oas[i] = new RandomizedHillClimbing(nnops[i]);
+      oas[i] = new RandomizedHillClimbing(nnops[i], restarts);
 
       FeedForwardNetwork ffNet = nets[i];
 
@@ -153,8 +173,8 @@ public class WineTest extends Application{
 
     FeedForwardNetwork bestNet = nets[best_index];
     double validationError = validationErrors[best_index];
-    double trainError = trainErrors[best_index];
-    double testError = evaluateNetwork(bestNet, testSet.getInstances());
+      trainError = trainErrors[best_index];
+    testError = evaluateNetwork(bestNet, testSet.getInstances());
 
 
     System.out.printf("%nMin Validation Error: %f%% %n", validationError * 100);
@@ -239,8 +259,8 @@ public class WineTest extends Application{
 
     FeedForwardNetwork bestNet = nets[best_index];
     double validationError = validationErrors[best_index];
-    double trainError = trainErrors[best_index];
-    double testError = evaluateNetwork(bestNet, testSet.getInstances());
+      trainError = trainErrors[best_index];
+      testError = evaluateNetwork(bestNet, testSet.getInstances());
 
 
     System.out.printf("%nMin Validation Error: %f%% %n", validationError * 100);
@@ -324,8 +344,8 @@ public class WineTest extends Application{
 
     FeedForwardNetwork bestNet = nets[best_index];
     double validationError = validationErrors[best_index];
-    double trainError = trainErrors[best_index];
-    double testError = evaluateNetwork(bestNet, testSet.getInstances());
+    trainError = trainErrors[best_index];
+    testError = evaluateNetwork(bestNet, testSet.getInstances());
 
 
     System.out.printf("%nMin Validation Error: %f%% %n", validationError * 100);
@@ -400,8 +420,8 @@ public class WineTest extends Application{
 
     BackPropagationNetwork bestNet = nets[best_index];
     double validationError = validationErrors[best_index];
-    double trainError = trainErrors[best_index];
-    double testError = evaluateNetwork(bestNet, testSet.getInstances());
+    trainError = trainErrors[best_index];
+    testError = evaluateNetwork(bestNet, testSet.getInstances());
 
 
     System.out.println("\nConvergence in " + trainingIterations + " iterations");
@@ -439,10 +459,13 @@ public class WineTest extends Application{
   private static void train(OptimizationAlgorithm oa, FeedForwardNetwork network, int
       iterations) {
 
+      char[] animationChars = new char[] {'|', '/', '-', '\\'};
     for(int i = 0; i < iterations; i++) {
+        System.out.print("Processing: " + counter + " run/"
+                + i + " iterations " + animationChars[i % 4] + "\r");
       oa.train();
     }
-    Instance optimalWeights = oa.getOptimal();
+      Instance optimalWeights = oa.getOptimal();
     network.setWeights(optimalWeights.getData());
   }
 
@@ -566,12 +589,18 @@ public class WineTest extends Application{
     try {
       BufferedReader br = new BufferedReader(new FileReader(new File(filename)));
         System.out.println(filename);
+        String splitter = ",";
 
 //      You don't need these headers, they're just the column labels
+        if(filename.contains(".csv")) {
+        	String useless_headers = br.readLine();
+            System.out.println(useless_headers);
+            splitter = ";";
+        }
 
       for(int i = 0; i < attributes.length; i++) {
         Scanner scan = new Scanner(br.readLine());
-          scan.useDelimiter(",");
+          scan.useDelimiter(splitter);
 
         attributes[i] = new double[num_attributes];
 
@@ -763,8 +792,8 @@ public class WineTest extends Application{
     public void start(Stage primaryStage) throws Exception {
 
         primaryStage.setTitle("Randomized Optimization with Neural Nets");
-        Scene scene = new Scene(new Group(), 800, 300);
-        Scene scene2 = new Scene(new Group(), 800, 300);
+        Scene scene = new Scene(new Group(), 400, 600);
+        Scene scene2 = new Scene(new Group(), 400, 600);
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Data File");
@@ -790,6 +819,14 @@ public class WineTest extends Application{
         final Pane spring1 = new Pane();
         spring1.minHeightProperty().bind(iterLabel.heightProperty());
 
+        Label rhcLabel = new Label("Randomized Hill Climbing");
+        Label reLabel = new Label("Number of Restarts: ");
+        final TextField reInput = new TextField();
+        reInput.setText("0");
+
+        final Pane spring2 = new Pane();
+        spring2.minHeightProperty().bind(iterLabel.heightProperty());
+
         Label saLabel = new Label("Simulated Annealing");
         Label tempLabel = new Label("Temperature: ");
         final TextField tempInput = new TextField();
@@ -798,8 +835,8 @@ public class WineTest extends Application{
         final TextField coolInput = new TextField();
         coolInput.setText("0.999");
 
-        final Pane spring2 = new Pane();
-        spring2.minHeightProperty().bind(iterLabel.heightProperty());
+        final Pane spring3 = new Pane();
+        spring3.minHeightProperty().bind(iterLabel.heightProperty());
 
         Label gaLabel = new Label("Genetic Algorithm");
         Label psLabel = new Label("Population Size: ");
@@ -819,7 +856,7 @@ public class WineTest extends Application{
         Button addButt = new Button("add...");
         Button nextButton2 = new Button("RUN!");
 
-        ArrayList<double[]> runs = new ArrayList<double[]>();
+        runs = new ArrayList<double[]>();
 
 
 
@@ -856,6 +893,7 @@ public class WineTest extends Application{
         addButt.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                restarts = Integer.parseInt(reInput.getText());
                 hiddenLayer = Integer.parseInt(hlInput.getText());
                 trainingIterations = Integer.parseInt(iterInput.getText());
                 temp = Double.parseDouble(tempInput.getText());
@@ -863,12 +901,12 @@ public class WineTest extends Application{
                 populationSize = Integer.parseInt(psInput.getText());
                 toMate = Integer.parseInt(mateInput.getText());
                 toMutate = Integer.parseInt(mutInput.getText());
-                runInstruc = "--HL " + hiddenLayer + " Iter " + trainingIterations
+                runInstruc = "--RS: " + restarts+ " HL " + hiddenLayer + " Iter " + trainingIterations
                         + " Temp " + temp + " Cl " + cooling + " PS " + populationSize
                         + " Ma " + toMate + " Mut " + toMutate;
                 record.appendText(runInstruc + "\n");
                 runs.add(new double[]{(double) hiddenLayer, (double) trainingIterations, temp, cooling,
-                        (double) populationSize, (double) toMate, (double) toMutate});
+                        (double) populationSize, (double) toMate, (double) toMutate, (double) restarts});
                 System.out.print(runs);
 
             }
@@ -878,8 +916,10 @@ public class WineTest extends Application{
             @Override
             public void handle(ActionEvent event) {
                 try {
+                    counter = 1;
                     writer = new BufferedWriter(new FileWriter(resultFile));
                     for (double[] r : runs) {
+                        restarts = (int) r[7];
                         hiddenLayer = (int) r[0];
                         trainingIterations = (int) r[1];
                         temp = r[2];
@@ -888,7 +928,32 @@ public class WineTest extends Application{
                         toMate = (int) r[5];
                         toMutate = (int) r[6];
                         run();
+                        counter++;
                     }
+                    String[] st = new String[2];
+                    st[0] = "Training Error";
+                    st[1] = "Testing Error";
+                    JGraph jg_rhc = new JGraph(st, "Random Restarts");
+                    for(int i = 0; i < rhc_trainingErr.size(); i++) {
+                        jg_rhc.addToSeries("Training Error", runs.get(i)[7], rhc_trainingErr.get(i));
+                        jg_rhc.addToSeries("Testing Error", runs.get(i)[7], rhc_testingErr.get(i));
+                    }
+                    jg_rhc.createChart();
+
+                    JGraph jg_sa = new JGraph(st, "Temperature");
+                    for(int i = 0; i < sa_trainingErr.size(); i++) {
+                        jg_rhc.addToSeries("Training Error", runs.get(i)[2], sa_trainingErr.get(i));
+                        jg_rhc.addToSeries("Testing Error", runs.get(i)[2], sa_testingErr.get(i));
+                    }
+                    jg_sa.createChart();
+
+                    JGraph jg_ga = new JGraph(st, "Population Size");
+                    for(int i = 0; i < ga_trainingErr.size(); i++) {
+                        jg_rhc.addToSeries("Training Error", runs.get(i)[4], ga_trainingErr.get(i));
+                        jg_rhc.addToSeries("Testing Error", runs.get(i)[4], ga_testingErr.get(i));
+                    }
+                    jg_ga.createChart();
+                    
                     writer.close();
                     primaryStage.close();
                 } catch (IOException e) {
@@ -920,23 +985,27 @@ public class WineTest extends Application{
         grid2.add(iterInput, 1, 1);
 
         grid2.add(spring1, 0, 2);
-        grid2.add(saLabel, 0, 4);
-        grid2.add(tempLabel, 0, 5);
-        grid2.add(tempInput, 1, 5);
-        grid2.add(coolLabel, 0, 6);
-        grid2.add(coolInput, 1, 6);
+        grid2.add(rhcLabel, 0, 3);
+        grid2.add(reLabel, 0, 4);
+        grid2.add(reInput, 1, 4);
 
-        grid2.add(spring2, 0, 7);
-        grid2.add(gaLabel, 0, 8);
-        grid2.add(psLabel, 0, 9);
-        grid2.add(psInput, 1, 9);
-        grid2.add(mateLabel, 0, 10);
-        grid2.add(mateInput, 1, 10);
-        grid2.add(mutLabel, 0, 11);
-        grid2.add(mutInput, 1, 11);
-        grid2.add(record, 0, 12);
-        grid2.add(addButt, 0, 13);
-        grid2.add(nextButton2, 1, 13);
+        grid2.add(saLabel, 0, 5);
+        grid2.add(tempLabel, 0, 6);
+        grid2.add(tempInput, 1, 6);
+        grid2.add(coolLabel, 0, 7);
+        grid2.add(coolInput, 1, 7);
+
+        grid2.add(spring2, 0, 8);
+        grid2.add(gaLabel, 0, 9);
+        grid2.add(psLabel, 0, 10);
+        grid2.add(psInput, 1, 10);
+        grid2.add(mateLabel, 0, 11);
+        grid2.add(mateInput, 1, 11);
+        grid2.add(mutLabel, 0, 12);
+        grid2.add(mutInput, 1, 12);
+        grid2.add(record, 0, 13, 3, 1);
+        grid2.add(addButt, 0, 14);
+        grid2.add(nextButton2, 1, 14);
 
         Group root1 = (Group) scene.getRoot();
         root1.getChildren().add(grid1);
@@ -964,8 +1033,16 @@ public class WineTest extends Application{
         writer.newLine();
 
         runBackprop();
+        bp_trainingErr.add(trainError);
+        bp_testingErr.add(testError);
         runRHC();
+        rhc_trainingErr.add(trainError);
+        rhc_testingErr.add(testError);
         runSA();
+        sa_trainingErr.add(trainError);
+        sa_testingErr.add(testError);
         runGA();
+        ga_trainingErr.add(trainError);
+        ga_testingErr.add(testError);
     }
 }

@@ -1,20 +1,686 @@
-=======Back Propagation=====
-Min Validation Error: 52.5
-Training Error: 54.95118549511855
-Test Error: 54.625
-Time Elapsed: 0.676
+--HL 10 Iter 1000 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+===========Backprop=========
+Fold: 1	Error: 50.000000%
+Fold: 2	Error: 54.166667%
+Fold: 3	Error: 55.000000%
+Fold: 4	Error: 50.416667%
+Fold: 5	Error: 49.583333%
+Fold: 6	Error: 55.416667%
+Fold: 7	Error: 46.666667%
+Fold: 8	Error: 49.583333%
+Fold: 9	Error: 59.583333%
+Fold: 10	Error: 45.454545%
+
+Convergence in 1000 iterations
+
+Min Validation Error: 45.454545% 
+Training Error: 45.833333% 
+Test Error: 45.791667% 
+Time Elapsed: 62.923 s 
 ===========Randomized Hill Climbing=========
-Min Validation Error: 52.5
-Training Error: 55.18363551836355
-Test Error: 54.833333333333336
-Time Elapsed: 0.153
+Fold: 1	Error: 60.416667%
+Fold: 2	Error: 53.750000%
+Fold: 3	Error: 57.500000%
+Fold: 4	Error: 55.000000%
+Fold: 5	Error: 47.083333%
+Fold: 6	Error: 52.500000%
+Fold: 7	Error: 51.666667%
+Fold: 8	Error: 53.333333%
+Fold: 9	Error: 59.166667%
+Fold: 10	Error: 54.112554%
+
+Min Validation Error: 47.083333% 
+Training Error: 55.323106% 
+Test Error: 54.500000% 
+Time Elapsed: 32.106 s 
 ===========Simulated Annealing=========
-Min Validation Error: 50.83333333333333
-Training Error: 55.18363551836355
-Test Error: 54.666666666666664
-Time Elapsed: 0.168
+Fold: 1	Error: 60.000000%
+Fold: 2	Error: 100.000000%
+Fold: 3	Error: 100.000000%
+Fold: 4	Error: 97.083333%
+Fold: 5	Error: 84.583333%
+Fold: 6	Error: 98.750000%
+Fold: 7	Error: 89.583333%
+Fold: 8	Error: 71.250000%
+Fold: 9	Error: 98.333333%
+Fold: 10	Error: 96.103896%
+
+Min Validation Error: 60.000000% 
+Training Error: 54.346815% 
+Test Error: 54.916667% 
+Time Elapsed: 32.352 s 
 ===========Genetic Algorithms=========
-Min Validation Error: 50.83333333333333
-Training Error: 55.18363551836355
-Test Error: 54.666666666666664
-Time Elapsed: 10.982
+Fold: 1	Error: 60.416667%
+Fold: 2	Error: 52.916667%
+Fold: 3	Error: 57.083333%
+Fold: 4	Error: 55.000000%
+Fold: 5	Error: 47.916667%
+Fold: 6	Error: 55.416667%
+Fold: 7	Error: 51.666667%
+Fold: 8	Error: 53.333333%
+Fold: 9	Error: 59.583333%
+Fold: 10	Error: 54.112554%
+
+Min Validation Error: 47.916667% 
+Training Error: 55.648536% 
+Test Error: 54.875000% 
+Time Elapsed: 3660.502 s 
+initialing...
+/Users/joanchen/Desktop/Machine Learning/ABAGAIL/src/opt/test/wine-train.txt
+[ 9.000000,  6.000000,  7.000000,  8.000000,  5.000000,  4.000000,  3.000000]
+--HL 10 Iter 100 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+===========Backprop=========
+Fold: 1	Error: 50.833333%
+Fold: 2	Error: 52.083333%
+Fold: 3	Error: 51.250000%
+Fold: 4	Error: 45.833333%
+Fold: 5	Error: 50.000000%
+Fold: 6	Error: 55.000000%
+Fold: 7	Error: 56.666667%
+Fold: 8	Error: 52.916667%
+Fold: 9	Error: 55.000000%
+Fold: 10	Error: 61.904762%
+
+Convergence in 100 iterations
+
+Min Validation Error: 45.833333% 
+Training Error: 51.929335% 
+Test Error: 51.333333% 
+Time Elapsed: 7.180 s 
+===========Randomized Hill Climbing=========
+Fold: 1	Error: 57.500000%
+Fold: 2	Error: 95.416667%
+Fold: 3	Error: 55.000000%
+Fold: 4	Error: 71.666667%
+Fold: 5	Error: 56.666667%
+Fold: 6	Error: 93.750000%
+Fold: 7	Error: 97.083333%
+Fold: 8	Error: 80.416667%
+Fold: 9	Error: 61.666667%
+Fold: 10	Error: 57.142857%
+
+Min Validation Error: 55.000000% 
+Training Error: 54.811715% 
+Test Error: 54.875000% 
+Time Elapsed: 3.670 s 
+===========Simulated Annealing=========
+Fold: 1	Error: 96.250000%
+Fold: 2	Error: 95.833333%
+Fold: 3	Error: 81.250000%
+Fold: 4	Error: 97.083333%
+Fold: 5	Error: 70.000000%
+Fold: 6	Error: 99.166667%
+Fold: 7	Error: 99.166667%
+Fold: 8	Error: 97.083333%
+Fold: 9	Error: 96.666667%
+Fold: 10	Error: 75.324675%
+
+Min Validation Error: 70.000000% 
+Training Error: 70.153417% 
+Test Error: 70.166667% 
+Time Elapsed: 4.358 s 
+===========Genetic Algorithms=========
+Fold: 1	Error: 57.500000%
+Fold: 2	Error: 52.083333%
+Fold: 3	Error: 54.583333%
+Fold: 4	Error: 50.000000%
+Fold: 5	Error: 52.500000%
+Fold: 6	Error: 59.166667%
+Fold: 7	Error: 56.666667%
+Fold: 8	Error: 72.083333%
+Fold: 9	Error: 55.416667%
+Fold: 10	Error: 57.142857%
+
+Min Validation Error: 50.000000% 
+Training Error: 55.183636% 
+Test Error: 54.708333% 
+Time Elapsed: 431.070 s 
+initialing...
+/Users/joanchen/Desktop/Machine Learning/ABAGAIL/src/opt/test/wine-train.txt
+[ 9.000000,  6.000000,  7.000000,  8.000000,  5.000000,  4.000000,  3.000000]
+--HL 10 Iter 200 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+===========Backprop=========
+Fold: 1	Error: 50.416667%
+Fold: 2	Error: 50.416667%
+Fold: 3	Error: 55.416667%
+Fold: 4	Error: 56.666667%
+Fold: 5	Error: 53.750000%
+Fold: 6	Error: 60.416667%
+Fold: 7	Error: 49.166667%
+Fold: 8	Error: 59.166667%
+Fold: 9	Error: 42.083333%
+Fold: 10	Error: 55.844156%
+
+Convergence in 200 iterations
+
+Min Validation Error: 42.083333% 
+Training Error: 52.812645% 
+Test Error: 51.625000% 
+Time Elapsed: 13.714 s 
+===========Randomized Hill Climbing=========
+Fold: 1	Error: 97.500000%
+Fold: 2	Error: 72.916667%
+Fold: 3	Error: 70.833333%
+Fold: 4	Error: 56.666667%
+Fold: 5	Error: 54.166667%
+Fold: 6	Error: 66.666667%
+Fold: 7	Error: 56.250000%
+Fold: 8	Error: 59.583333%
+Fold: 9	Error: 57.500000%
+Fold: 10	Error: 51.515152%
+
+Min Validation Error: 51.515152% 
+Training Error: 55.370370% 
+Test Error: 54.916667% 
+Time Elapsed: 6.937 s 
+===========Simulated Annealing=========
+Fold: 1	Error: 99.583333%
+Fold: 2	Error: 96.666667%
+Fold: 3	Error: 97.083333%
+Fold: 4	Error: 79.166667%
+Fold: 5	Error: 100.000000%
+Fold: 6	Error: 100.000000%
+Fold: 7	Error: 100.000000%
+Fold: 8	Error: 79.583333%
+Fold: 9	Error: 96.250000%
+Fold: 10	Error: 55.844156%
+
+Min Validation Error: 55.844156% 
+Training Error: 60.879630% 
+Test Error: 60.333333% 
+Time Elapsed: 7.053 s 
+===========Genetic Algorithms=========
+Fold: 1	Error: 49.166667%
+Fold: 2	Error: 55.833333%
+Fold: 3	Error: 51.666667%
+Fold: 4	Error: 56.666667%
+Fold: 5	Error: 54.166667%
+Fold: 6	Error: 59.166667%
+Fold: 7	Error: 56.666667%
+Fold: 8	Error: 59.583333%
+Fold: 9	Error: 56.250000%
+Fold: 10	Error: 51.515152%
+
+Min Validation Error: 49.166667% 
+Training Error: 55.695026% 
+Test Error: 54.958333% 
+Time Elapsed: 855.983 s 
+initialing...
+/Users/joanchen/Desktop/Machine Learning/ABAGAIL/src/opt/test/wine-train.txt
+[ 9.000000,  6.000000,  7.000000,  8.000000,  5.000000,  4.000000,  3.000000]
+--HL 10 Iter 300 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+===========Backprop=========
+Fold: 1	Error: 47.916667%
+Fold: 2	Error: 56.666667%
+Fold: 3	Error: 55.000000%
+Fold: 4	Error: 56.666667%
+Fold: 5	Error: 49.166667%
+Fold: 6	Error: 55.000000%
+Fold: 7	Error: 50.000000%
+Fold: 8	Error: 53.333333%
+Fold: 9	Error: 50.000000%
+Fold: 10	Error: 50.216450%
+
+Convergence in 300 iterations
+
+Min Validation Error: 47.916667% 
+Training Error: 47.140865% 
+Test Error: 47.250000% 
+Time Elapsed: 20.831 s 
+===========Randomized Hill Climbing=========
+Fold: 1	Error: 52.500000%
+Fold: 2	Error: 78.750000%
+Fold: 3	Error: 54.583333%
+Fold: 4	Error: 65.000000%
+Fold: 5	Error: 52.500000%
+Fold: 6	Error: 55.000000%
+Fold: 7	Error: 53.333333%
+Fold: 8	Error: 53.750000%
+Fold: 9	Error: 54.166667%
+Fold: 10	Error: 55.844156%
+
+Min Validation Error: 52.500000% 
+Training Error: 55.927476% 
+Test Error: 55.583333% 
+Time Elapsed: 11.035 s 
+===========Simulated Annealing=========
+Fold: 1	Error: 100.000000%
+Fold: 2	Error: 61.250000%
+Fold: 3	Error: 100.000000%
+Fold: 4	Error: 100.000000%
+Fold: 5	Error: 71.250000%
+Fold: 6	Error: 97.500000%
+Fold: 7	Error: 85.833333%
+Fold: 8	Error: 70.833333%
+Fold: 9	Error: 70.833333%
+Fold: 10	Error: 100.000000%
+
+Min Validation Error: 61.250000% 
+Training Error: 60.855416% 
+Test Error: 60.875000% 
+Time Elapsed: 11.310 s 
+===========Genetic Algorithms=========
+Fold: 1	Error: 50.416667%
+Fold: 2	Error: 55.416667%
+Fold: 3	Error: 54.583333%
+Fold: 4	Error: 56.666667%
+Fold: 5	Error: 52.500000%
+Fold: 6	Error: 55.833333%
+Fold: 7	Error: 53.333333%
+Fold: 8	Error: 53.750000%
+Fold: 9	Error: 54.166667%
+Fold: 10	Error: 55.844156%
+
+Min Validation Error: 50.416667% 
+Training Error: 54.532775% 
+Test Error: 54.083333% 
+Time Elapsed: 1169.872 s 
+initialing...
+/Users/joanchen/Desktop/Machine Learning/ABAGAIL/src/opt/test/wine-train.txt
+[ 9.000000,  6.000000,  7.000000,  8.000000,  5.000000,  4.000000,  3.000000]
+--HL 10 Iter 400 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+===========Backprop=========
+Fold: 1	Error: 58.333333%
+Fold: 2	Error: 49.583333%
+Fold: 3	Error: 57.500000%
+Fold: 4	Error: 45.000000%
+Fold: 5	Error: 57.916667%
+Fold: 6	Error: 50.833333%
+Fold: 7	Error: 55.833333%
+Fold: 8	Error: 50.833333%
+Fold: 9	Error: 52.083333%
+Fold: 10	Error: 55.844156%
+
+Convergence in 400 iterations
+
+Min Validation Error: 45.000000% 
+Training Error: 47.838215% 
+Test Error: 47.541667% 
+Time Elapsed: 26.458 s 
+===========Randomized Hill Climbing=========
+Fold: 1	Error: 60.416667%
+Fold: 2	Error: 50.416667%
+Fold: 3	Error: 56.666667%
+Fold: 4	Error: 54.583333%
+Fold: 5	Error: 57.916667%
+Fold: 6	Error: 52.083333%
+Fold: 7	Error: 53.750000%
+Fold: 8	Error: 54.583333%
+Fold: 9	Error: 55.000000%
+Fold: 10	Error: 99.567100%
+
+Min Validation Error: 50.416667% 
+Training Error: 55.369596% 
+Test Error: 54.916667% 
+Time Elapsed: 13.650 s 
+===========Simulated Annealing=========
+Fold: 1	Error: 95.416667%
+Fold: 2	Error: 81.250000%
+Fold: 3	Error: 94.166667%
+Fold: 4	Error: 96.250000%
+Fold: 5	Error: 96.666667%
+Fold: 6	Error: 80.000000%
+Fold: 7	Error: 70.833333%
+Fold: 8	Error: 99.583333%
+Fold: 9	Error: 100.000000%
+Fold: 10	Error: 96.969697%
+
+Min Validation Error: 70.833333% 
+Training Error: 71.129707% 
+Test Error: 71.083333% 
+Time Elapsed: 13.606 s 
+===========Genetic Algorithms=========
+Fold: 1	Error: 58.333333%
+Fold: 2	Error: 51.250000%
+Fold: 3	Error: 56.666667%
+Fold: 4	Error: 55.000000%
+Fold: 5	Error: 57.916667%
+Fold: 6	Error: 51.666667%
+Fold: 7	Error: 53.750000%
+Fold: 8	Error: 53.750000%
+Fold: 9	Error: 55.000000%
+Fold: 10	Error: 55.844156%
+
+Min Validation Error: 51.250000% 
+Training Error: 55.369596% 
+Test Error: 55.000000% 
+Time Elapsed: 1616.567 s 
+initialing...
+/Users/joanchen/Desktop/Machine Learning/ABAGAIL/src/opt/test/wine-train.txt
+[ 9.000000,  6.000000,  7.000000,  8.000000,  5.000000,  4.000000,  3.000000]
+--HL 10 Iter 500 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+===========Backprop=========
+Fold: 1	Error: 49.583333%
+Fold: 2	Error: 56.666667%
+Fold: 3	Error: 54.583333%
+Fold: 4	Error: 54.583333%
+Fold: 5	Error: 49.583333%
+Fold: 6	Error: 52.916667%
+Fold: 7	Error: 53.333333%
+Fold: 8	Error: 52.083333%
+Fold: 9	Error: 49.583333%
+Fold: 10	Error: 57.142857%
+
+Convergence in 500 iterations
+
+Min Validation Error: 49.583333% 
+Training Error: 49.790795% 
+Test Error: 49.666667% 
+Time Elapsed: 34.107 s 
+===========Randomized Hill Climbing=========
+Fold: 1	Error: 78.333333%
+Fold: 2	Error: 58.333333%
+Fold: 3	Error: 58.333333%
+Fold: 4	Error: 54.583333%
+Fold: 5	Error: 62.083333%
+Fold: 6	Error: 57.916667%
+Fold: 7	Error: 54.166667%
+Fold: 8	Error: 55.000000%
+Fold: 9	Error: 55.000000%
+Fold: 10	Error: 56.709957%
+
+Min Validation Error: 54.166667% 
+Training Error: 56.531846% 
+Test Error: 56.208333% 
+Time Elapsed: 19.998 s 
+===========Simulated Annealing=========
+Fold: 1	Error: 97.916667%
+Fold: 2	Error: 70.416667%
+Fold: 3	Error: 99.166667%
+Fold: 4	Error: 99.583333%
+Fold: 5	Error: 59.166667%
+Fold: 6	Error: 96.666667%
+Fold: 7	Error: 95.416667%
+Fold: 8	Error: 95.833333%
+Fold: 9	Error: 98.333333%
+Fold: 10	Error: 97.835498%
+
+Min Validation Error: 59.166667% 
+Training Error: 58.437936% 
+Test Error: 58.416667% 
+Time Elapsed: 20.592 s 
+===========Genetic Algorithms=========
+Fold: 1	Error: 59.166667%
+Fold: 2	Error: 58.333333%
+Fold: 3	Error: 58.333333%
+Fold: 4	Error: 54.166667%
+Fold: 5	Error: 58.333333%
+Fold: 6	Error: 53.333333%
+Fold: 7	Error: 53.750000%
+Fold: 8	Error: 54.583333%
+Fold: 9	Error: 55.416667%
+Fold: 10	Error: 57.142857%
+
+Min Validation Error: 53.333333% 
+Training Error: 56.485356% 
+Test Error: 56.083333% 
+Time Elapsed: 1919.589 s 
+initialing...
+/Users/joanchen/Desktop/Machine Learning/ABAGAIL/src/opt/test/wine-train.txt
+[ 9.000000,  6.000000,  7.000000,  8.000000,  5.000000,  4.000000,  3.000000]
+--HL 10 Iter 600 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+===========Backprop=========
+Fold: 1	Error: 45.000000%
+Fold: 2	Error: 49.166667%
+Fold: 3	Error: 48.750000%
+Fold: 4	Error: 56.250000%
+Fold: 5	Error: 55.416667%
+Fold: 6	Error: 47.083333%
+Fold: 7	Error: 50.000000%
+Fold: 8	Error: 60.416667%
+Fold: 9	Error: 55.833333%
+Fold: 10	Error: 46.320346%
+
+Convergence in 600 iterations
+
+Min Validation Error: 45.000000% 
+Training Error: 47.838215% 
+Test Error: 47.541667% 
+Time Elapsed: 42.102 s 
+===========Randomized Hill Climbing=========
+Fold: 1	Error: 56.250000%
+Fold: 2	Error: 58.750000%
+Fold: 3	Error: 55.416667%
+Fold: 4	Error: 53.750000%
+Fold: 5	Error: 60.833333%
+Fold: 6	Error: 47.083333%
+Fold: 7	Error: 50.416667%
+Fold: 8	Error: 59.583333%
+Fold: 9	Error: 54.583333%
+Fold: 10	Error: 55.411255%
+
+Min Validation Error: 47.083333% 
+Training Error: 56.345886% 
+Test Error: 55.333333% 
+Time Elapsed: 21.086 s 
+===========Simulated Annealing=========
+Fold: 1	Error: 95.833333%
+Fold: 2	Error: 85.833333%
+Fold: 3	Error: 55.416667%
+Fold: 4	Error: 80.416667%
+Fold: 5	Error: 80.833333%
+Fold: 6	Error: 99.583333%
+Fold: 7	Error: 85.000000%
+Fold: 8	Error: 83.750000%
+Fold: 9	Error: 95.000000%
+Fold: 10	Error: 100.000000%
+
+Min Validation Error: 55.416667% 
+Training Error: 55.416086% 
+Test Error: 55.333333% 
+Time Elapsed: 20.809 s 
+===========Genetic Algorithms=========
+Fold: 1	Error: 56.666667%
+Fold: 2	Error: 58.750000%
+Fold: 3	Error: 55.416667%
+Fold: 4	Error: 53.750000%
+Fold: 5	Error: 60.833333%
+Fold: 6	Error: 49.166667%
+Fold: 7	Error: 50.000000%
+Fold: 8	Error: 59.583333%
+Fold: 9	Error: 54.583333%
+Fold: 10	Error: 55.844156%
+
+Min Validation Error: 49.166667% 
+Training Error: 56.066946% 
+Test Error: 55.291667% 
+Time Elapsed: 2388.905 s 
+initialing...
+/Users/joanchen/Desktop/Machine Learning/ABAGAIL/src/opt/test/wine-train.txt
+[ 9.000000,  6.000000,  7.000000,  8.000000,  5.000000,  4.000000,  3.000000]
+--HL 10 Iter 700 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+===========Backprop=========
+Fold: 1	Error: 48.750000%
+Fold: 2	Error: 48.750000%
+Fold: 3	Error: 54.583333%
+Fold: 4	Error: 50.000000%
+Fold: 5	Error: 54.166667%
+Fold: 6	Error: 49.583333%
+Fold: 7	Error: 48.333333%
+Fold: 8	Error: 47.083333%
+Fold: 9	Error: 55.416667%
+Fold: 10	Error: 54.545455%
+
+Convergence in 700 iterations
+
+Min Validation Error: 47.083333% 
+Training Error: 45.978615% 
+Test Error: 46.083333% 
+Time Elapsed: 51.714 s 
+===========Randomized Hill Climbing=========
+Fold: 1	Error: 57.083333%
+Fold: 2	Error: 52.500000%
+Fold: 3	Error: 54.583333%
+Fold: 4	Error: 50.000000%
+Fold: 5	Error: 54.583333%
+Fold: 6	Error: 52.500000%
+Fold: 7	Error: 53.750000%
+Fold: 8	Error: 56.666667%
+Fold: 9	Error: 57.083333%
+Fold: 10	Error: 57.142857%
+
+Min Validation Error: 50.000000% 
+Training Error: 55.230126% 
+Test Error: 54.666667% 
+Time Elapsed: 25.266 s 
+===========Simulated Annealing=========
+Fold: 1	Error: 95.416667%
+Fold: 2	Error: 72.500000%
+Fold: 3	Error: 54.583333%
+Fold: 4	Error: 81.250000%
+Fold: 5	Error: 89.166667%
+Fold: 6	Error: 76.250000%
+Fold: 7	Error: 98.333333%
+Fold: 8	Error: 81.250000%
+Fold: 9	Error: 85.416667%
+Fold: 10	Error: 66.666667%
+
+Min Validation Error: 54.583333% 
+Training Error: 54.718735% 
+Test Error: 54.666667% 
+Time Elapsed: 23.477 s 
+===========Genetic Algorithms=========
+Fold: 1	Error: 57.500000%
+Fold: 2	Error: 52.500000%
+Fold: 3	Error: 54.583333%
+Fold: 4	Error: 50.000000%
+Fold: 5	Error: 55.833333%
+Fold: 6	Error: 52.500000%
+Fold: 7	Error: 53.750000%
+Fold: 8	Error: 56.666667%
+Fold: 9	Error: 56.666667%
+Fold: 10	Error: 57.142857%
+
+Min Validation Error: 50.000000% 
+Training Error: 55.230126% 
+Test Error: 54.666667% 
+Time Elapsed: 2650.694 s 
+initialing...
+/Users/joanchen/Desktop/Machine Learning/ABAGAIL/src/opt/test/wine-train.txt
+[ 9.000000,  6.000000,  7.000000,  8.000000,  5.000000,  4.000000,  3.000000]
+--HL 10 Iter 800 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+===========Backprop=========
+Fold: 1	Error: 47.083333%
+Fold: 2	Error: 46.666667%
+Fold: 3	Error: 51.250000%
+Fold: 4	Error: 51.250000%
+Fold: 5	Error: 56.250000%
+Fold: 6	Error: 57.916667%
+Fold: 7	Error: 46.666667%
+Fold: 8	Error: 54.583333%
+Fold: 9	Error: 48.333333%
+Fold: 10	Error: 45.454545%
+
+Convergence in 800 iterations
+
+Min Validation Error: 45.454545% 
+Training Error: 47.129630% 
+Test Error: 47.000000% 
+Time Elapsed: 54.028 s 
+===========Randomized Hill Climbing=========
+Fold: 1	Error: 44.583333%
+Fold: 2	Error: 52.916667%
+Fold: 3	Error: 53.750000%
+Fold: 4	Error: 55.416667%
+Fold: 5	Error: 55.000000%
+Fold: 6	Error: 57.916667%
+Fold: 7	Error: 52.500000%
+Fold: 8	Error: 56.666667%
+Fold: 9	Error: 56.250000%
+Fold: 10	Error: 58.441558%
+
+Min Validation Error: 44.583333% 
+Training Error: 55.416086% 
+Test Error: 54.291667% 
+Time Elapsed: 27.192 s 
+===========Simulated Annealing=========
+Fold: 1	Error: 94.583333%
+Fold: 2	Error: 53.333333%
+Fold: 3	Error: 97.083333%
+Fold: 4	Error: 92.083333%
+Fold: 5	Error: 82.083333%
+Fold: 6	Error: 99.166667%
+Fold: 7	Error: 92.083333%
+Fold: 8	Error: 97.083333%
+Fold: 9	Error: 87.500000%
+Fold: 10	Error: 61.038961%
+
+Min Validation Error: 53.333333% 
+Training Error: 55.276616% 
+Test Error: 55.041667% 
+Time Elapsed: 27.307 s 
+===========Genetic Algorithms=========
+Fold: 1	Error: 44.583333%
+Fold: 2	Error: 52.916667%
+Fold: 3	Error: 54.583333%
+Fold: 4	Error: 55.416667%
+Fold: 5	Error: 55.000000%
+Fold: 6	Error: 57.500000%
+Fold: 7	Error: 52.500000%
+Fold: 8	Error: 56.250000%
+Fold: 9	Error: 55.833333%
+Fold: 10	Error: 58.874459%
+
+Min Validation Error: 44.583333% 
+Training Error: 55.416086% 
+Test Error: 54.291667% 
+Time Elapsed: 2967.741 s 
+initialing...
+/Users/joanchen/Desktop/Machine Learning/ABAGAIL/src/opt/test/wine-train.txt
+[ 9.000000,  6.000000,  7.000000,  8.000000,  5.000000,  4.000000,  3.000000]
+--HL 10 Iter 900 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+===========Backprop=========
+Fold: 1	Error: 53.333333%
+Fold: 2	Error: 53.333333%
+Fold: 3	Error: 49.583333%
+Fold: 4	Error: 51.250000%
+Fold: 5	Error: 47.500000%
+Fold: 6	Error: 52.083333%
+Fold: 7	Error: 45.833333%
+Fold: 8	Error: 50.000000%
+Fold: 9	Error: 55.000000%
+Fold: 10	Error: 44.588745%
+
+Convergence in 900 iterations
+
+Min Validation Error: 44.588745% 
+Training Error: 47.777778% 
+Test Error: 47.416667% 
+Time Elapsed: 60.070 s 
+===========Randomized Hill Climbing=========
+Fold: 1	Error: 58.750000%
+Fold: 2	Error: 52.916667%
+Fold: 3	Error: 58.333333%
+Fold: 4	Error: 54.166667%
+Fold: 5	Error: 53.750000%
+Fold: 6	Error: 57.916667%
+Fold: 7	Error: 52.083333%
+Fold: 8	Error: 54.166667%
+Fold: 9	Error: 59.166667%
+Fold: 10	Error: 58.008658%
+
+Min Validation Error: 52.083333% 
+Training Error: 55.416086% 
+Test Error: 55.000000% 
+Time Elapsed: 29.863 s 
+===========Simulated Annealing=========
+Fold: 1	Error: 81.250000%
+Fold: 2	Error: 97.916667%
+Fold: 3	Error: 100.000000%
+Fold: 4	Error: 94.583333%
+Fold: 5	Error: 53.750000%
+Fold: 6	Error: 73.333333%
+Fold: 7	Error: 96.666667%
+Fold: 8	Error: 71.666667%
+Fold: 9	Error: 77.083333%
+Fold: 10	Error: 96.536797%
+
+Min Validation Error: 53.750000% 
+Training Error: 55.927476% 
+Test Error: 55.666667% 
+Time Elapsed: 29.857 s 
+===========Genetic Algorithms=========
+Fold: 1	Error: 58.750000%
+Fold: 2	Error: 52.916667%
+Fold: 3	Error: 58.333333%
+Fold: 4	Error: 54.166667%

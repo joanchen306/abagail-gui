@@ -28,14 +28,28 @@ public class RandomizedHillClimbing extends OptimizationAlgorithm {
      * threshold for restarting
      */
     private int thres;
+    /**
+     * best data
+     */
+    private Instance best;
     
     /**
      * Make a new randomized hill climbing
      */
+    public RandomizedHillClimbing(HillClimbingProblem hcp) {
+        super(hcp);
+        cur = hcp.random();
+        curVal = hcp.value(cur);
+        best = cur;
+        this.n = 0;
+        thres = 0;
+    }
+
     public RandomizedHillClimbing(HillClimbingProblem hcp, int n) {
         super(hcp);
         cur = hcp.random();
         curVal = hcp.value(cur);
+        best = cur;
         this.n = n;
         thres = 0;
     }
@@ -59,7 +73,12 @@ public class RandomizedHillClimbing extends OptimizationAlgorithm {
                 thres = 0;
             }
         }
-        return curVal;
+
+        if (hcp.value(best) < hcp.value(cur)) {
+            best = cur;
+        }
+
+        return hcp.value(best);
     }
 
     /**
