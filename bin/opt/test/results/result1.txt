@@ -1,0 +1,20 @@
+=======Back Propagation=====
+Min Validation Error: 52.5
+Training Error: 54.95118549511855
+Test Error: 54.625
+Time Elapsed: 0.676
+===========Randomized Hill Climbing=========
+Min Validation Error: 52.5
+Training Error: 55.18363551836355
+Test Error: 54.833333333333336
+Time Elapsed: 0.153
+===========Simulated Annealing=========
+Min Validation Error: 50.83333333333333
+Training Error: 55.18363551836355
+Test Error: 54.666666666666664
+Time Elapsed: 0.168
+===========Genetic Algorithms=========
+Min Validation Error: 50.83333333333333
+Training Error: 55.18363551836355
+Test Error: 54.666666666666664
+Time Elapsed: 10.982
