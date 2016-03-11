@@ -18,14 +18,26 @@ public class RandomizedHillClimbing extends OptimizationAlgorithm {
      * The current value of the data
      */
     private double curVal;
+
+    /**
+     * number of random restarts
+     */
+    private int n;
+
+    /**
+     * threshold for restarting
+     */
+    private int thres;
     
     /**
      * Make a new randomized hill climbing
      */
-    public RandomizedHillClimbing(HillClimbingProblem hcp) {
+    public RandomizedHillClimbing(HillClimbingProblem hcp, int n) {
         super(hcp);
         cur = hcp.random();
         curVal = hcp.value(cur);
+        this.n = n;
+        thres = 0;
     }
 
     /**
@@ -38,12 +50,20 @@ public class RandomizedHillClimbing extends OptimizationAlgorithm {
         if (neighVal > curVal) {
             curVal = neighVal;
             cur = neigh;
+        } else {
+            thres++;
+            if(thres >= 15 && n > 0) {
+                cur = hcp.random();
+                curVal = hcp.value(cur);
+                n--;
+                thres = 0;
+            }
         }
         return curVal;
     }
 
     /**
-     * @see opt.OptimizationAlgorithm#getOptimalData()
+     * @see opt.OptimizationAlgorithm# getOptimalData()
      */
     public Instance getOptimal() {
         return cur;

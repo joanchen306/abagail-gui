@@ -42,7 +42,8 @@ public class WineTest extends Application{
     private static int populationSize;
     private static int toMate;
     private static int toMutate;
-  private static String[] labels;
+    private String runInstruc;
+    private static String[] labels;
   private static Set<String> unique_labels;
 
   private static Instance[] allInstances;
@@ -762,8 +763,8 @@ public class WineTest extends Application{
     public void start(Stage primaryStage) throws Exception {
 
         primaryStage.setTitle("Randomized Optimization with Neural Nets");
-        Scene scene = new Scene(new Group(), 800, 400);
-        Scene scene2 = new Scene(new Group(), 800, 400);
+        Scene scene = new Scene(new Group(), 800, 300);
+        Scene scene2 = new Scene(new Group(), 800, 300);
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Data File");
@@ -811,7 +812,14 @@ public class WineTest extends Application{
         final TextField mutInput = new TextField();
         mutInput.setText("20");
 
+        final TextArea record = new TextArea();
+        record.setMinSize(350,200);
+
+
+        Button addButt = new Button("add...");
         Button nextButton2 = new Button("RUN!");
+
+        ArrayList<double[]> runs = new ArrayList<double[]>();
 
 
 
@@ -828,6 +836,7 @@ public class WineTest extends Application{
                 exampleInput.setText("");
                 attrInput.setText("");
 
+
             }
         });
 
@@ -840,10 +849,11 @@ public class WineTest extends Application{
                 resultFile = file2.getAbsolutePath();
                 resultInput.setText(resultFile + "/" + resultInput.getText());
 
+
             }
         });
 
-        nextButton2.setOnAction(new EventHandler<ActionEvent>() {
+        addButt.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 hiddenLayer = Integer.parseInt(hlInput.getText());
@@ -853,9 +863,33 @@ public class WineTest extends Application{
                 populationSize = Integer.parseInt(psInput.getText());
                 toMate = Integer.parseInt(mateInput.getText());
                 toMutate = Integer.parseInt(mutInput.getText());
+                runInstruc = "--HL " + hiddenLayer + " Iter " + trainingIterations
+                        + " Temp " + temp + " Cl " + cooling + " PS " + populationSize
+                        + " Ma " + toMate + " Mut " + toMutate;
+                record.appendText(runInstruc + "\n");
+                runs.add(new double[]{(double) hiddenLayer, (double) trainingIterations, temp, cooling,
+                        (double) populationSize, (double) toMate, (double) toMutate});
+                System.out.print(runs);
 
+            }
+        });
+
+        nextButton2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
                 try {
-                    run();
+                    writer = new BufferedWriter(new FileWriter(resultFile));
+                    for (double[] r : runs) {
+                        hiddenLayer = (int) r[0];
+                        trainingIterations = (int) r[1];
+                        temp = r[2];
+                        cooling = r[3];
+                        populationSize = (int) r[4];
+                        toMate = (int) r[5];
+                        toMutate = (int) r[6];
+                        run();
+                    }
+                    writer.close();
                     primaryStage.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -900,7 +934,9 @@ public class WineTest extends Application{
         grid2.add(mateInput, 1, 10);
         grid2.add(mutLabel, 0, 11);
         grid2.add(mutInput, 1, 11);
-        grid2.add(nextButton2, 0, 13);
+        grid2.add(record, 0, 12);
+        grid2.add(addButt, 0, 13);
+        grid2.add(nextButton2, 1, 13);
 
         Group root1 = (Group) scene.getRoot();
         root1.getChildren().add(grid1);
@@ -918,13 +954,18 @@ public class WineTest extends Application{
         //    Handles cross-fold validation using K folds
         makeTestTrainSets();
         folds = kfolds(trainSet);
-        writer = new BufferedWriter(new FileWriter(resultFile));
+        runInstruc = "--HL " + hiddenLayer + " Iter " + trainingIterations
+                + " Temp " + temp + " Cl " + cooling + " PS " + populationSize
+                + " Ma " + toMate + " Mut " + toMutate;
+        writer.write(runInstruc);
+        System.out.println(runInstruc);
+        writer.newLine();
+        writer.write("Iterations: " + trainingIterations);
+        writer.newLine();
 
         runBackprop();
         runRHC();
         runSA();
         runGA();
-
-        writer.close();
     }
 }
