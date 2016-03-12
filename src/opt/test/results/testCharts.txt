@@ -1,0 +1,108 @@
+--RS: 0 HL 10 Iter 1 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+Iterations: 1
+=======Back Propagation=====
+Min Validation Error: 57.91666666666667
+Training Error: 57.833565783356576
+Test Error: 57.791666666666664
+Time Elapsed: 0.517
+===========Randomized Hill Climbing=========
+Min Validation Error: 51.66666666666667
+Training Error: 55.83449558344956
+Test Error: 55.333333333333336
+Time Elapsed: 0.316
+===========Simulated Annealing=========
+temperature: 1.0E11
+cooling: 0.999
+Min Validation Error: 53.75
+Training Error: 55.78800557880056
+Test Error: 55.50000000000001
+Time Elapsed: 0.155
+===========Genetic Algorithms=========
+population size: 200
+Mate: 100
+Mutation: 20
+Min Validation Error: 54.58333333333333
+Training Error: 57.787075778707575
+Test Error: 57.41666666666667
+Time Elapsed: 10.806
+--RS: 0 HL 10 Iter 1 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+Iterations: 1
+=======Back Propagation=====
+Min Validation Error: 50.83333333333333
+Training Error: 55.18363551836355
+Test Error: 54.75
+Time Elapsed: 0.155
+===========Randomized Hill Climbing=========
+Min Validation Error: 66.66666666666666
+Training Error: 70.6648070664807
+Test Error: 70.16666666666667
+Time Elapsed: 0.265
+===========Simulated Annealing=========
+temperature: 1.0E11
+cooling: 0.999
+Min Validation Error: 74.16666666666667
+Training Error: 69.78149697814969
+Test Error: 70.125
+Time Elapsed: 0.117
+===========Genetic Algorithms=========
+population size: 200
+Mate: 100
+Mutation: 20
+Min Validation Error: 53.333333333333336
+Training Error: 56.20641562064156
+Test Error: 55.91666666666667
+Time Elapsed: 10.926
+--RS: 0 HL 10 Iter 1 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+Iterations: 1
+=======Back Propagation=====
+Min Validation Error: 53.333333333333336
+Training Error: 56.53184565318456
+Test Error: 56.208333333333336
+Time Elapsed: 0.156
+===========Randomized Hill Climbing=========
+Min Validation Error: 63.33333333333333
+Training Error: 60.52998605299861
+Test Error: 60.83333333333333
+Time Elapsed: 0.272
+===========Simulated Annealing=========
+temperature: 1.0E11
+cooling: 0.999
+Min Validation Error: 53.333333333333336
+Training Error: 56.43886564388656
+Test Error: 56.125
+Time Elapsed: 0.123
+===========Genetic Algorithms=========
+population size: 200
+Mate: 100
+Mutation: 20
+Min Validation Error: 52.083333333333336
+Training Error: 56.53184565318456
+Test Error: 56.08333333333333
+Time Elapsed: 11.076
+--RS: 0 HL 10 Iter 1 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+Iterations: 1
+=======Back Propagation=====
+Min Validation Error: 49.166666666666664
+Training Error: 56.67131566713157
+Test Error: 55.91666666666667
+Time Elapsed: 0.159
+===========Randomized Hill Climbing=========
+Min Validation Error: 49.166666666666664
+Training Error: 56.71780567178056
+Test Error: 55.95833333333333
+Time Elapsed: 0.253
+===========Simulated Annealing=========
+temperature: 1.0E11
+cooling: 0.999
+Min Validation Error: 51.24999999999999
+Training Error: 56.43886564388656
+Test Error: 55.91666666666667
+Time Elapsed: 0.124
+===========Genetic Algorithms=========
+population size: 200
+Mate: 100
+Mutation: 20
+Min Validation Error: 53.333333333333336
+Training Error: 56.25290562529056
+Test Error: 55.95833333333333
+Time Elapsed: 11.592

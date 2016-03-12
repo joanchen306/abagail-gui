@@ -4,6 +4,8 @@ package dist.test;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -41,10 +43,19 @@ public class JGraph  {
         for(String k : keys) dataset.addSeries(seriesMap.get(k));
     }
 
-    public void createChart() {
+    public void createChart(double x_min, double x_max) {
         createDataSet();
         JFreeChart chart = ChartFactory.createXYLineChart(x_axis + " vs error",
                 x_axis, "error", dataset);
+
+        System.out.print(dataset.getSeries(0).getItems());
+        System.out.print(dataset.getSeries(1).getItems());
+
+        XYPlot plot = (XYPlot) chart.getPlot();
+        ValueAxis xAxis = plot.getDomainAxis();
+        xAxis.setRange(x_min, x_max);
+        ValueAxis yAxis = plot.getRangeAxis();
+        yAxis.setRange(0.40, 0.80);
 
         File dir = new File("src/opt/test/results/graphs/" + x_axis + "/");
         if (!dir.isDirectory()) {

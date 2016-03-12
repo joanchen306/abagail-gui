@@ -938,21 +938,38 @@ public class WineTest extends Application{
                         jg_rhc.addToSeries("Training Error", runs.get(i)[7], rhc_trainingErr.get(i));
                         jg_rhc.addToSeries("Testing Error", runs.get(i)[7], rhc_testingErr.get(i));
                     }
-                    jg_rhc.createChart();
+                    jg_rhc.createChart(0.0, 25.0);
 
                     JGraph jg_sa = new JGraph(st, "Temperature");
-                    for(int i = 0; i < sa_trainingErr.size(); i++) {
-                        jg_rhc.addToSeries("Training Error", runs.get(i)[2], sa_trainingErr.get(i));
-                        jg_rhc.addToSeries("Testing Error", runs.get(i)[2], sa_testingErr.get(i));
+                    for(int i = 0; i < sa_trainingErr.size()/2; i++) {
+                        jg_sa.addToSeries("Training Error", runs.get(i)[2], sa_trainingErr.get(i));
+                        jg_sa.addToSeries("Testing Error", runs.get(i)[2], sa_testingErr.get(i));
                     }
-                    jg_sa.createChart();
+                    System.out.println(sa_trainingErr);
+                    jg_sa.createChart(9E10, 1E12);
 
-                    JGraph jg_ga = new JGraph(st, "Population Size");
-                    for(int i = 0; i < ga_trainingErr.size(); i++) {
-                        jg_rhc.addToSeries("Training Error", runs.get(i)[4], ga_trainingErr.get(i));
-                        jg_rhc.addToSeries("Testing Error", runs.get(i)[4], ga_testingErr.get(i));
+                    JGraph jg_sa1 = new JGraph(st, "Cooling");
+                    for(int i = sa_trainingErr.size()/2 - 1; i < sa_trainingErr.size(); i++) {
+                        jg_sa1.addToSeries("Training Error", runs.get(i)[3], sa_trainingErr.get(i));
+                        jg_sa1.addToSeries("Testing Error", runs.get(i)[3], sa_testingErr.get(i));
                     }
-                    jg_ga.createChart();
+                    jg_sa1.createChart(0.70, 1.0);
+
+                    JGraph jg_ga = new JGraph(st, "Crossover");
+                    for(int i = 0; i < ga_trainingErr.size()/2; i++) {
+                        jg_ga.addToSeries("Training Error", runs.get(i)[5], ga_trainingErr.get(i));
+                        jg_ga.addToSeries("Testing Error", runs.get(i)[5], ga_testingErr.get(i));
+                        System.out.println(runs.get(i)[4]);
+                    }
+                    System.out.println(ga_trainingErr);
+                    jg_ga.createChart(0.0, 120.0);
+
+                    JGraph jg_ga1 = new JGraph(st, "Mutation");
+                    for(int i = ga_trainingErr.size()/2 - 1; i < ga_trainingErr.size(); i++) {
+                        jg_ga1.addToSeries("Training Error", runs.get(i)[6], ga_trainingErr.get(i));
+                        jg_ga1.addToSeries("Testing Error", runs.get(i)[6], ga_testingErr.get(i));
+                    }
+                    jg_ga1.createChart(0.0, 30.0);
                     
                     writer.close();
                     primaryStage.close();
@@ -1023,7 +1040,7 @@ public class WineTest extends Application{
         //    Handles cross-fold validation using K folds
         makeTestTrainSets();
         folds = kfolds(trainSet);
-        runInstruc = "--HL " + hiddenLayer + " Iter " + trainingIterations
+        runInstruc = "--RS: " + restarts+ " HL " + hiddenLayer + " Iter " + trainingIterations
                 + " Temp " + temp + " Cl " + cooling + " PS " + populationSize
                 + " Ma " + toMate + " Mut " + toMutate;
         writer.write(runInstruc);

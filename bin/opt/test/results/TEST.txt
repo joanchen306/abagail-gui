@@ -1,0 +1,81 @@
+--RS: 0 HL 10 Iter 1 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+Iterations: 1
+=======Back Propagation=====
+Min Validation Error: 50.416666666666664
+Training Error: 55.64853556485355
+Test Error: 55.125
+Time Elapsed: 0.537
+===========Randomized Hill Climbing=========
+Min Validation Error: 56.25
+Training Error: 54.99767549976755
+Test Error: 55.125
+Time Elapsed: 0.313
+===========Simulated Annealing=========
+temperature: 1.0E11
+cooling: 0.999
+Min Validation Error: 50.416666666666664
+Training Error: 55.64853556485355
+Test Error: 55.125
+Time Elapsed: 0.166
+===========Genetic Algorithms=========
+population size: 200
+Mate: 100
+Mutation: 20
+Min Validation Error: 50.416666666666664
+Training Error: 55.64853556485355
+Test Error: 55.125
+Time Elapsed: 10.891
+--RS: 0 HL 10 Iter 1 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+Iterations: 1
+=======Back Propagation=====
+Min Validation Error: 45.83333333333333
+Training Error: 55.83449558344956
+Test Error: 54.79166666666667
+Time Elapsed: 0.151
+===========Randomized Hill Climbing=========
+Min Validation Error: 54.166666666666664
+Training Error: 54.85820548582054
+Test Error: 54.75
+Time Elapsed: 0.277
+===========Simulated Annealing=========
+temperature: 1.0E11
+cooling: 0.999
+Min Validation Error: 52.083333333333336
+Training Error: 55.090655509065556
+Test Error: 54.75
+Time Elapsed: 0.141
+===========Genetic Algorithms=========
+population size: 200
+Mate: 100
+Mutation: 20
+Min Validation Error: 52.083333333333336
+Training Error: 55.044165504416554
+Test Error: 54.708333333333336
+Time Elapsed: 11.022
+--RS: 0 HL 10 Iter 1 Temp 1.0E11 Cl 0.999 PS 200 Ma 100 Mut 20
+Iterations: 1
+=======Back Propagation=====
+Min Validation Error: 53.75
+Training Error: 54.67224546722454
+Test Error: 54.58333333333333
+Time Elapsed: 0.170
+===========Randomized Hill Climbing=========
+Min Validation Error: 55.00000000000001
+Training Error: 54.57926545792655
+Test Error: 54.625
+Time Elapsed: 0.258
+===========Simulated Annealing=========
+temperature: 1.0E11
+cooling: 0.999
+Min Validation Error: 71.25
+Training Error: 74.33751743375174
+Test Error: 74.08333333333333
+Time Elapsed: 0.123
+===========Genetic Algorithms=========
+population size: 200
+Mate: 100
+Mutation: 20
+Min Validation Error: 55.00000000000001
+Training Error: 54.85820548582054
+Test Error: 54.87499999999999
+Time Elapsed: 11.123
